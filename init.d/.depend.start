@@ -1,0 +1,18 @@
+TARGETS = rsyslog open-vm-tools uuidd lvm2-lvmpolld unattended-upgrades lxd lvm2-lvmetad killprocs apport ubuntu-fan atd cgroupfs-mount mdadm irqbalance single rsync acpid cron dbus ssh docker lxcfs plymouth ondemand grub-common rc.local
+INTERACTIVE =
+atd: rsyslog
+cgroupfs-mount: rsyslog
+mdadm: rsyslog
+irqbalance: rsyslog
+single: killprocs
+rsync: rsyslog
+acpid: rsyslog
+cron: rsyslog
+dbus: rsyslog
+ssh: rsyslog
+docker: rsyslog cgroupfs-mount
+lxcfs: cgroupfs-mount
+plymouth: atd rsyslog cgroupfs-mount open-vm-tools uuidd lvm2-lvmpolld mdadm unattended-upgrades docker irqbalance lxcfs lxd lvm2-lvmetad apport rsync acpid cron dbus ssh ubuntu-fan
+ondemand: atd rsyslog cgroupfs-mount open-vm-tools uuidd lvm2-lvmpolld mdadm unattended-upgrades docker irqbalance lxcfs lxd lvm2-lvmetad apport rsync acpid cron dbus ssh ubuntu-fan
+grub-common: atd rsyslog cgroupfs-mount open-vm-tools uuidd lvm2-lvmpolld mdadm unattended-upgrades docker irqbalance lxcfs lxd lvm2-lvmetad apport rsync acpid cron dbus ssh ubuntu-fan
+rc.local: atd rsyslog cgroupfs-mount open-vm-tools uuidd lvm2-lvmpolld mdadm unattended-upgrades docker irqbalance lxcfs lxd lvm2-lvmetad apport rsync acpid cron dbus ssh ubuntu-fan
